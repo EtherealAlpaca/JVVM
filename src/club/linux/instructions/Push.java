@@ -1,16 +1,15 @@
-package instructions;
+package club.linux.instructions;
 
-import type.Stack;
+import club.linux.VM;
+import club.linux.type.Stack;
 
 public class Push implements Instruction {
-    Stack stack;
     Object pushee;
-    public Push(Object pushee, Stack stack) {
-        this.stack = stack;
+    public Push(Object pushee) {
         this.pushee = pushee;
     }
-    public void exec() {
-        stack.put(pushee);
+    public void exec(VM parent) {
+        parent.stack.put(pushee);
     }
     public String getName() {
         return "push";

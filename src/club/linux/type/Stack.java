@@ -1,4 +1,4 @@
-package type;
+package club.linux.type;
 
 import java.util.ArrayList;
 import java.util.List;

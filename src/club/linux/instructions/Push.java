@@ -1,18 +1,19 @@
 package club.linux.instructions;
 
 import club.linux.VM;
-import club.linux.type.Stack;
 
-public class Push implements Instruction {
-    Object pushee;
-    public Push(Object pushee) {
+public class Push implements IInstruction {
+    long pushee;
+    public Push(long pushee) {
         this.pushee = pushee;
     }
     public void exec(VM parent) {
         parent.stack.put(pushee);
+        // Increment RSP
+        parent.RSP.set(parent.RSP.get() + 1);
     }
     public String getName() {
-        return "push";
+        return "PUSH";
     }
     public int getOpcode() {
         return 0x00;

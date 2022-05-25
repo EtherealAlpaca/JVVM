@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stack {
-    public int RSP;
-    private List<Object> stack = new ArrayList<>();
-
+    private List<Long> stack = new ArrayList<>();
     public void remove(int index) {
         stack.remove(index);
     }
-    public void put(Object o) {
-        stack.add(o);
+    public void put(Long l) {
+        stack.add(l);
     }
-    public Object get(int index) {
+    public long get(int index) {
         return stack.get(index);
     }
 }

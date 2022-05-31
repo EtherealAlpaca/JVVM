@@ -1,8 +1,6 @@
 package club.linux;
 
-import club.linux.instructions.IInstruction;
-import club.linux.instructions.Pop;
-import club.linux.instructions.Push;
+import club.linux.instructions.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +11,16 @@ public class Main {
 
         VM vm = new VM();
 
-        instructions.add(new Push(0x03));
+        /**
+         * for (int i = 0; i > 0; i--) {
+         *
+         * }
+         */
+
+        instructions.add(new Push(0x0F));
         instructions.add(new Pop(vm.RAX));
+        instructions.add(new Dec(vm.RAX));
+        instructions.add(new Jnz(-1, vm.RAX, true));
 
         vm.load(instructions);
 

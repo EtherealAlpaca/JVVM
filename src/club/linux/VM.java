@@ -18,6 +18,8 @@ public class VM {
 
     public Register RSP = new Register();
 
+    public Register EIP = new Register();
+
     public List<IInstruction> instructions = new ArrayList<>();
 
     public VM() {
@@ -29,8 +31,11 @@ public class VM {
         this.instructions = instructions;
     }
     public void execute() {
-        for (IInstruction instruction : instructions) {
-            instruction.exec(this);
+        // For loop abuse
+        // I know it looks bad, but its closest to how it works in a CPU. I should have written this in C ): I miss pointers.
+        for (EIP.get(); EIP.get() < instructions.size(); EIP.set(EIP.get() + 1)) {
+            instructions.get((int) EIP.get()).exec(this);
+            System.out.println(RAX.get());
         }
     }
 }

@@ -3,9 +3,9 @@ package club.linux.instructions;
 import club.linux.VM;
 import club.linux.type.Register;
 
-public class INC implements IInstruction {
+public class Inc implements IInstruction {
     Register reg;
-    public INC(Register reg) {
+    public Inc(Register reg) {
         this.reg = reg;
     }
     public void exec(VM parent) {
